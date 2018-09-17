@@ -1,0 +1,15 @@
+#version 330
+
+layout(location=0) in vec3 modelPosition;
+
+out vec4 passedColour;
+
+uniform mat4 transformationMatrix;
+uniform vec4 cubeColour;
+
+void main()
+{
+	vec4 vector = vec4(modelPosition, 1.0);
+	passedColour = cubeColour;
+	gl_Position = transformationMatrix * vector;
+}
